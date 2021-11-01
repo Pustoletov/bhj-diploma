@@ -1,6 +1,5 @@
-
 class User {
-  static URL = '/user';
+  static url = '/user';
 
   static setCurrent(user) {
     localStorage.user = JSON.stringify(user);
@@ -16,7 +15,7 @@ class User {
 
   static fetch(callback) {
     createRequest({
-      url: this.URL,
+      url: this.URL + '/current',
       method: "GET",
       data: null,
       callback: (err, response) => {
@@ -33,7 +32,7 @@ class User {
 
   static login(data, callback) {
     createRequest({
-      url: this.URL,
+      url: this.URL + '/login',
       method: "POST",
       data,
       callback: (err, response) => {
@@ -61,7 +60,7 @@ class User {
 
   static logout(data, callback) {
     createRequest({
-      url: this.URL,
+      url: this.URL + '/logout',
       method: "POST",
       data,
       callback: (err, response) => {
