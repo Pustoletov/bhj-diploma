@@ -26,9 +26,9 @@ class AsyncForm {
     let data = {}
     let form = this.element
     for (let atr of form) {
-      data.atr.name = atr.value;
+      data[atr.name] = atr.value;
     }
-    return obj;
+    return data;
   }
 
   onSubmit(options){

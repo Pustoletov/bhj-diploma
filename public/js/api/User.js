@@ -15,7 +15,7 @@ class User {
 
   static fetch(callback) {
     createRequest({
-      url: this.URL + '/current',
+      url: this.url + '/current',
       method: "GET",
       data: null,
       callback: (err, response) => {
@@ -32,7 +32,7 @@ class User {
 
   static login(data, callback) {
     createRequest({
-      url: this.URL + '/login',
+      url: this.url + '/login',
       method: "POST",
       data,
       callback: (err, response) => {
@@ -46,7 +46,7 @@ class User {
 
   static register(data, callback) {
     createRequest({
-      url: this.URL + '/register',
+      url: this.url + '/register',
       method: "POST",
       data,
       callback: (err, response) => {
@@ -60,14 +60,14 @@ class User {
 
   static logout(data, callback) {
     createRequest({
-      url: this.URL + '/logout',
+      url: this.url + '/logout',
       method: "POST",
       data,
       callback: (err, response) => {
         if (response && response.user) {
-          this.setCurrent(response.user);
-        }
-        callback(err, response);
+          this.unsetCurrent();
+      }
+      callback(err, response);
       }
     });
   }
